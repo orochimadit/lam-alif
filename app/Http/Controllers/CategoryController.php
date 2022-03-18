@@ -16,6 +16,8 @@ class CategoryController extends Controller
     public function index()
     {
         //
+        $categories = Category::all();
+        return view('category.index', compact('categories'));
     }
 
     /**
@@ -26,6 +28,7 @@ class CategoryController extends Controller
     public function create()
     {
         //
+        return view('category.create');
     }
 
     /**
@@ -36,7 +39,13 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        
+        Category::create([
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
+        // dd(\Ramsey\Uuid\Uuid::uuid4()->toString());
+       return redirect()->route('category.index')->with('alert-success', 'Category Berhasil ditambah.');
     }
 
     /**
@@ -58,7 +67,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('category.edit', compact('category'));
     }
 
     /**
@@ -70,7 +79,11 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $category->update([
+            'name'      => $request->name,
+            'description' => $request->description
+        ]);
+        return redirect()->route('category.index')->with('alert-success', 'Category berhasil diubah.');
     }
 
     /**
@@ -81,6 +94,13 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        
+        try {
+            $category->delete();
+        } catch (\Throwable $th) {
+            return back()->with('alert-danger',$th->getMessage());
+        }
+        return redirect()->route('category.index')->with('alert-success', 'Category berhasil dihapus');
+       
     }
 }
