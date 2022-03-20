@@ -12,7 +12,7 @@
 
                 ])}} sidebar-nav-link"><i class="icon ion-filing"></i>Master</a>
             <ul class="nav sidebar-nav-sub">
-                <li class="nav-sub-item"><a href="#" class=" nav-sub-link">Category</a></li>
+                <li class="nav-sub-item"><a href="{{route('category.index')}}" class=" nav-sub-link">Category</a></li>
                 
             </ul>
         </li>
@@ -20,7 +20,7 @@
             <a href="#" class="sidebar-nav-link">
             <i class="icon ion-clipboard"></i> Data Materi</a>
             <ul class="nav sidebar-nav-sub">
-                <li class="nav-sub-item"><a href="#" class=" nav-sub-link">Data Materi</a></li>
+                <li class="nav-sub-item"><a href="{{route('material.index')}}" class=" nav-sub-link">Data Materi</a></li>
             </ul>
         </li>
     </ul>

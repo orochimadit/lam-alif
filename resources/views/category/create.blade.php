@@ -28,7 +28,7 @@
              </div>
          </div>
          <div class="form-layout-footer">
-             <button type="submit" class="btn btn-primary bd-0" onclick="return confirm('Simpan data ?')">Simpan</button>
+             <button type="submit" class="btn btn-danger bd-0" onclick="return confirm('Simpan data ?')">Simpan</button>
          </div>
      </form>
  </div>
